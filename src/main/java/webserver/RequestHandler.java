@@ -28,8 +28,11 @@ public class RequestHandler extends Thread {
             byte[] body = "Hello World".getBytes();
             response200Header(dos, body.length);
             responseBody(dos, body);
+            Thread.sleep(1000);
         } catch (IOException e) {
             log.error(e.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
